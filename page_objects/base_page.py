@@ -1,3 +1,4 @@
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver import ActionChains
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -20,8 +21,10 @@ class BasePage:
         wait = WebDriverWait(self._driver, time)
         wait.until(ec.visibility_of_element_located(locator))
 
+    def _element_is_clickable(self, locator, timeout=5):
+        return wait(self._driver, timeout).until(ec.element_to_be_clickable(locator))
     def _click(self, locator: tuple, time: int = 10):
-        self._wait_until_element_is_visible(locator, time)
+        self._element_is_clickable(locator, time)
         self._find(locator).click()
 
     def _scroll_into_view(self, locator):
@@ -32,3 +35,12 @@ class BasePage:
         wait_to_load = wait(self._driver, 15)
         element = wait_to_load.until(ec.visibility_of_element_located(locator))
         return element
+
+    def _type(self, locator: tuple, text: str, time: int = 10):
+        self._wait_until_element_is_visible(locator, time)
+        self._find(locator).send_keys(text)
+
+    def select_option_from_dropdown(self, locator, text):
+        select_element = self._find(locator)
+        select = Select(select_element)
+        select.select_by_visible_text(text)

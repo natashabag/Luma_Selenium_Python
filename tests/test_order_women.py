@@ -1,5 +1,4 @@
 import time
-import pytest
 from page_objects.order_women import OrderWomen
 from tests.conftest import driver
 
