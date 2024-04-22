@@ -7,7 +7,7 @@ from page_objects.order_women import OrderWomen
 @pytest.fixture(scope='function')
 def get_into_checkout_page(driver):
     page = OrderWomen(driver)
-    page.go_to_tops()
+    page.add_top()
 
 class TestCheckout:
     def test_checkout(self, driver, get_into_checkout_page):

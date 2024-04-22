@@ -28,7 +28,7 @@ class OrderWomen(BasePage):
         super()._open_url(self.__url)
         super()._click(self.__women_button)
 
-    def go_to_tops(self):
+    def add_top(self):
         super()._open_url(self.__url)
         super()._click(self.__women_button)
         super()._click(self.__top_link)
@@ -37,9 +37,9 @@ class OrderWomen(BasePage):
         super()._click(self.__s_size)
         super()._click(self.__color_pink)
         super()._click(self.__add_to_cart_button)
-        super()._wait_for_element_to_load(self.__message)
-        super()._scroll_into_view(self.__cart)
-        super()._click(self.__cart)
-        super()._click(self.__proceed_to_checkout_button)
+        #super()._wait_for_element_to_load(self.__message)
+        #super()._scroll_into_view(self.__cart)
+        #super()._click(self.__cart)
+        #super()._click(self.__proceed_to_checkout_button)
 
 
