@@ -5,7 +5,6 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-#comment
 
 class BasePage:
     def __init__(self, driver: WebDriver):
@@ -44,3 +43,6 @@ class BasePage:
         select_element = self._find(locator)
         select = Select(select_element)
         select.select_by_visible_text(text)
+
+    def _get_text(self, locator: tuple, time: int = 10) -> str:
+        return self._find(locator).text
