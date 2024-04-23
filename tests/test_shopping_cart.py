@@ -26,3 +26,4 @@ class TestCart:
         assert cart_page.define_color() == "White", "Unexpected error message"
 
 
+

@@ -46,3 +46,8 @@ class BasePage:
 
     def _get_text(self, locator: tuple, time: int = 10) -> str:
         return self._find(locator).text
+
+    def _hover_over(self, locator, time: int = 10):
+        self._element_is_clickable(locator, time)
+        element = self._find(locator)
+        ActionChains(self._driver).move_to_element(element).perform()

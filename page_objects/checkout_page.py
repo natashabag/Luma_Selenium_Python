@@ -4,8 +4,6 @@ from faker import Faker
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
-from selenium.webdriver.support.wait import WebDriverWait as ec, WebDriverWait
-
 from page_objects.base_page import BasePage
 
 
