@@ -51,3 +51,7 @@ class BasePage:
         self._element_is_clickable(locator, time)
         element = self._find(locator)
         ActionChains(self._driver).move_to_element(element).perform()
+
+    def _is_visible(self, locator):
+        self._wait_for_element_to_load(locator)
+        return self._find(locator).is_displayed()

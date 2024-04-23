@@ -6,7 +6,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from page_objects.base_page import BasePage
 
 
-class OrderWomen(BasePage):
+class ProductPage(BasePage):
     __url = "https://magento.softwaretestingboard.com/"
     __women_button = (By.XPATH, "//span[text()='Women']")
     __top_link = (By.XPATH, "//a[text()='Tops']")
@@ -23,6 +23,7 @@ class OrderWomen(BasePage):
     __add_to_compare_button = (By.CSS_SELECTOR, ".product-addto-links > .action.tocompare > span")
     __compare_products_button = (By.XPATH, "//body//ul[@class='compare wrapper']/li/a[@title='Compare Products']")
     __page_title = (By.XPATH, "/html//main[@id='maincontent']//span[@class='base']")
+    __product_added_message = (By.XPATH, "//main[@id='maincontent']//div[@role='alert']/div/div")
 
     __add_review_link = (By.CSS_SELECTOR, ".action.add")
     __rating = (By.XPATH, "//*[@id='Rating_3_label']/span")
@@ -71,6 +72,12 @@ class OrderWomen(BasePage):
         super()._click(self.__color_white)
         super()._scroll_into_view(self.__update_cart_button)
         super()._click(self.__update_cart_button)
+
+    def check_if_success_message_displayed(self):
+        time.sleep(3)
+        super()._scroll_into_view(self.__product_added_message)
+        return super()._is_visible(self.__product_added_message)
+
 
     def see_hover(self):
         super()._open_url(self.__url)
