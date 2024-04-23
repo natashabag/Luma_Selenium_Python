@@ -24,6 +24,7 @@ class ProductPage(BasePage):
     __compare_products_button = (By.XPATH, "//body//ul[@class='compare wrapper']/li/a[@title='Compare Products']")
     __page_title = (By.XPATH, "/html//main[@id='maincontent']//span[@class='base']")
     __product_added_message = (By.XPATH, "//main[@id='maincontent']//div[@role='alert']/div/div")
+    __search_field = (By.ID, "search")
 
     __add_review_link = (By.CSS_SELECTOR, ".action.add")
     __rating = (By.XPATH, "//*[@id='Rating_3_label']/span")
@@ -32,6 +33,8 @@ class ProductPage(BasePage):
     __nickname_field = (By.ID, "nickname_field")
     __summary_field = (By.ID, "summary_field")
     __review_field = (By.ID, "review_field")
+
+    __product = "shorts"
 
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
@@ -64,7 +67,7 @@ class ProductPage(BasePage):
     def view_product2(self):
         super()._click(self.__antonia_racer_tank)
 
-    def get_compare_page_title(self):
+    def get_page_title(self):
         return super()._get_text(self.__page_title)
 
     def select_white(self):
@@ -77,6 +80,13 @@ class ProductPage(BasePage):
         time.sleep(3)
         super()._scroll_into_view(self.__product_added_message)
         return super()._is_visible(self.__product_added_message)
+
+    def search_for_product(self):
+        super()._type(self.__search_field, self.__product)
+        super()._press_enter(self.__search_field)
+
+    def get_product(self):
+        return self.__product
 
 
     def see_hover(self):
@@ -94,6 +104,7 @@ class ProductPage(BasePage):
         super()._hover_over(self.__rating)
         super()._click(self.__rating)
         super()._click(self.__submit_review_button)
+
 
 
         #super()._wait_for_element_to_load(self.__message)

@@ -5,6 +5,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.common.keys import Keys
 
 class BasePage:
     def __init__(self, driver: WebDriver):
@@ -55,3 +56,7 @@ class BasePage:
     def _is_visible(self, locator):
         self._wait_for_element_to_load(locator)
         return self._find(locator).is_displayed()
+
+    def _press_enter(self, locator):
+        self._find(locator).send_keys(Keys.ENTER)
+

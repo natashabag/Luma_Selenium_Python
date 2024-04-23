@@ -10,6 +10,7 @@ class ShoppingCart(BasePage):
     __no_items_message = (By.CLASS_NAME, "cart-empty")
     __color_description = (By.XPATH, "/html//table[@id='shopping-cart-table']//td[@class='col item']//dd[2]")
 
+
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
 

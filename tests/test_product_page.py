@@ -24,7 +24,14 @@ class TestOrderWomen:
         time.sleep(3)
         order_women.go_to_compare()
         time.sleep(3)
-        assert order_women.get_compare_page_title() == "Compare Products", "Unexpected error message"
+        assert order_women.get_page_title() == "Compare Products", "Unexpected error message"
+
+    def test_search(self, driver):
+        home_page = ProductPage(driver)
+        home_page.open()
+        home_page.search_for_product()
+        product = home_page.get_product()
+        assert home_page.get_page_title() == f"Search results for: '{product}'", "Unexpected error message"
 
     def test_leave_review(self, driver):
         product_page = ProductPage(driver)
