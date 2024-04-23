@@ -13,6 +13,7 @@ class BasePage:
 
     def _open_url(self, url: str):
         self._driver.get(url)
+        self.url = url
 
     def _find(self, locator: tuple) -> WebElement:
         return self._driver.find_element(*locator)
