@@ -1,7 +1,7 @@
-# Luma Store - Selenium Webdriver Python project
+# Luma Store - Selenium Webdriver Python project 👩🏻‍💻
 
 ### This project is design to test functionalities of Luma Store. 
-The  consists of 10 tests that cover the following:
+✅ The  consists of 10 tests that cover the following:
 1. Checkout flow (add a product, fill out the check-out form with customer's credentials)
 2. Adding a product to the cart
 3. Comparing 2 products
