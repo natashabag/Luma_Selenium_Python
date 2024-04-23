@@ -26,6 +26,7 @@ class ProductPage(BasePage):
     __product_added_message = (By.XPATH, "//main[@id='maincontent']//div[@role='alert']/div/div")
     __search_field = (By.ID, "search")
 
+    # review:
     __add_review_link = (By.CSS_SELECTOR, ".action.add")
     __rating = (By.XPATH, "//*[@id='Rating_3_label']/span")
     __review_tab = (By.ID, "tab-label-reviews-title")

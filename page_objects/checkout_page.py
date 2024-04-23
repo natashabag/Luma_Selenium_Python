@@ -5,6 +5,7 @@ from page_objects.base_page import BasePage
 
 
 class CheckOutPage(BasePage):
+    # customer credentials:
     fake = Faker('en_US')
     state = "California"
     email = fake.email()
@@ -16,6 +17,7 @@ class CheckOutPage(BasePage):
     phone_number = fake.phone_number()
     company = "My Company"
 
+    # e-mail fields:
     __url = "https://magento.softwaretestingboard.com/checkout/#shipping"
     __email_field = (By.ID, "customer-email")
     __first_name_field = (By.NAME, "firstname")
@@ -26,11 +28,14 @@ class CheckOutPage(BasePage):
     __state_field = (By.NAME, "region_id")
     __phone_field = (By.NAME, "telephone")
     __zip_field = (By.NAME, "postcode")
+
+    # buttons:
     __fixed_rate_button = (By.NAME, "ko_unique_1")
     __next_button = (By.XPATH, "//div[@id='shipping-method-buttons-container']//button[@type='submit']")
     __place_order_button = (By.CSS_SELECTOR, "button[title='Place Order'] > span")
-    __success_message = (By.CLASS_NAME, "base")
 
+    # messages
+    __success_message = (By.CLASS_NAME, "base")
 
     def __init__(self, driver: WebDriver):
         super().__init__(driver)
@@ -59,11 +64,3 @@ class CheckOutPage(BasePage):
 
     def get_success_message(self) -> str:
         return super()._get_text(self.__success_message, 10)
-
-
-
-
-
-
-
-
