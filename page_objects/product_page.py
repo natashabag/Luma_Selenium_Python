@@ -99,6 +99,7 @@ class ProductPage(BasePage):
         super()._open_url(self.__url)
         super()._hover_over(self.__women_button)
 
+
     def leave_review(self):
         super()._click(self.__add_review_link)
         time.sleep(2)

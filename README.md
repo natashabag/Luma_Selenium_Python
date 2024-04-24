@@ -9,3 +9,6 @@
 5. Delete product from the cart
 6. Edit product in the cart
 7. Create an account
+8. Sign in into account
+9. Adding a product to wish list
+10. Removing a product from wish list

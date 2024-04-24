@@ -2,14 +2,18 @@ import time
 
 import pytest
 
+from page_objects.account_page import AccountPage
 from page_objects.product_page import ProductPage
 from page_objects.sign_in_page import SignInPage
 from tests.conftest import driver
+
 
 @pytest.fixture(scope='function')
 def sign_in(driver):
     sign__in_page = SignInPage(driver)
     sign__in_page.sign_in()
+
+
 class TestOrderWomen:
     def test_order(self, driver):
         order_women = ProductPage(driver)
@@ -48,6 +52,16 @@ class TestOrderWomen:
         product_page.add_to_wish_list()
         assert product_page.get_page_title() == "My Wish List", "Wish List in not displayed"
 
+    def test_removing_product_from_wish_list(self, driver, sign_in):
+        product_page = ProductPage(driver)
+        product_page.open()
+        product_page.go_to_women()
+        product_page.view_product()
+        product_page.add_to_wish_list()
+        account_page = AccountPage(driver)
+        account_page.delete_product_from_wish_list()
+        time.sleep(5)
+        assert product_page.get_page_title() == "My Wish List", "Wish List in not displayed"
 
     def test_leave_review(self, driver):
         product_page = ProductPage(driver)
@@ -55,5 +69,3 @@ class TestOrderWomen:
         product_page.view_product()
         product_page.leave_review()
         time.sleep(3)
-
-
