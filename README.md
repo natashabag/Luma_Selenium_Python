@@ -8,3 +8,4 @@
 4. Search field
 5. Delete product from the cart
 6. Edit product in the cart
+7. Create an account
