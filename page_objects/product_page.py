@@ -21,6 +21,7 @@ class ProductPage(BasePage):
     __proceed_to_checkout_button = (By.ID, "top-cart-btn-checkout")
     __update_cart_button = (By.ID, "product-updatecart-button")
     __add_to_compare_button = (By.CSS_SELECTOR, ".product-addto-links > .action.tocompare > span")
+    __add_to_wish_list_button = (By.CSS_SELECTOR, ".product-addto-links > .action.towishlist > span")
     __compare_products_button = (By.XPATH, "//body//ul[@class='compare wrapper']/li/a[@title='Compare Products']")
     __page_title = (By.XPATH, "/html//main[@id='maincontent']//span[@class='base']")
     __product_added_message = (By.XPATH, "//main[@id='maincontent']//div[@role='alert']/div/div")
@@ -59,9 +60,14 @@ class ProductPage(BasePage):
         super()._scroll_into_view(self.__add_to_compare_button)
         super()._click(self.__add_to_compare_button)
 
+    def add_to_wish_list(self):
+        super()._scroll_into_view(self.__add_to_wish_list_button)
+        super()._click(self.__add_to_wish_list_button)
+
     def go_to_compare(self):
         super()._scroll_into_view(self.__compare_products_button)
         super()._click(self.__compare_products_button)
+
     def view_product(self):
         super()._click(self.__breathe_easy_tank)
 
@@ -88,7 +94,6 @@ class ProductPage(BasePage):
 
     def get_product(self):
         return self.__product
-
 
     def see_hover(self):
         super()._open_url(self.__url)
