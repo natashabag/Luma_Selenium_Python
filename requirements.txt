@@ -1,1 +1,3 @@
 Faker==19.13.0
+selenium == 4.19.0
+pytest-html == 4.1.1

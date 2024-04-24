@@ -17,7 +17,7 @@ class CheckOutPage(BasePage):
     phone_number = fake.phone_number()
     company = "My Company"
 
-    # e-mail fields:
+    # fields:
     __url = "https://magento.softwaretestingboard.com/checkout/#shipping"
     __email_field = (By.ID, "customer-email")
     __first_name_field = (By.NAME, "firstname")
@@ -52,7 +52,7 @@ class CheckOutPage(BasePage):
         super()._type(self.__street_address_field, self.street_address)
         super()._scroll_into_view(self.__phone_field)
         super()._type(self.__city_field, self.city)
-        super().select_option_from_dropdown(self.__state_field, self.state)
+        super()._select_option_from_dropdown(self.__state_field, self.state)
         super()._type(self.__zip_field, self.zip_code)
         super()._type(self.__phone_field, self.phone_number)
         super()._scroll_into_view(self.__next_button)
@@ -63,4 +63,4 @@ class CheckOutPage(BasePage):
         super()._click(self.__place_order_button)
 
     def get_success_message(self) -> str:
-        return super()._get_text(self.__success_message, 10)
+        return super()._get_text(self.__success_message)

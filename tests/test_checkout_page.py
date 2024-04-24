@@ -9,7 +9,7 @@ def get_to_checkout_page(driver):
     page = ProductPage(driver)
     page.open()
     page.go_to_women()
-    page.view_product()
+    page.view_breathe_tank()
     page.add_top()
 
 
