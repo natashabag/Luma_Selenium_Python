@@ -3,7 +3,7 @@
 #### This project is designed to test functionalities of Luma Store. This project is designed to test functionalities of Luma Store.
 ## Test Coverage:
 
-1. Checkout Flow: Test the checkout process by adding a product to the cart and filling out the checkout form with customer credentials.
+1. <b> Checkout Flow: </b> Test the checkout process by adding a product to the cart and filling out the checkout form with customer credentials.
 2. Adding Product to Cart: Verify the functionality to add a product to the shopping cart.
 3. Comparing Products: Test the comparison feature by comparing two different products.
 4. Testing Search Field: Validate the search functionality by searching for products using the search field.
