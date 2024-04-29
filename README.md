@@ -14,7 +14,10 @@
 9. <b> Adding Product to Wishlist:</b> Verify the ability to add a product to the user's wishlist.
 10. <b> Removing Product from Wishlist:</b> Ensure the ability to remove a product from the user's wishlist.
 
-#### Tools and Technologies Used
+## Tools and Technologies Used:
+
 <b> Selenium Webdriver + Pytest</b>
+
 <b> Programming Language:</b> Python
+
 <b> IDE:</b> PyCharm
